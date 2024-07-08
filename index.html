@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="320">
+    <link rel="icon" href="weather.png" type="image/png">
+    <title>Student Portal</title>
+    <style>
+        body {
+            background-color: #153141;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 75vh;
+            overflow: hidden;
+            flex-direction: column; /* Align items in column */
+        }
+        .glow-text {
+            font-size: 32px;
+            font-weight: bold;
+            display: flex; /* Enable flexbox for child spans */
+            align-items: center; /* Center items horizontally */
+            justify-content: center; /* Center items vertically */
+            margin-bottom: 20px; /* Space between text and form */
+        }
+        .glow-text span {
+            animation: glow 1s infinite alternate;
+            margin: 0 5px; /* Adjust spacing between letters */
+        }
+        .glow-text span:nth-child(1) { animation-delay: 0s; }
+        .glow-text span:nth-child(2) { animation-delay: 0.2s; }
+        .glow-text span:nth-child(3) { animation-delay: 0.4s; }
+        .glow-text span:nth-child(4) { animation-delay: 0.6s; }
+        .glow-text span:nth-child(5) { animation-delay: 0.8s; }
+        .glow-text span:nth-child(6) { animation-delay: 1s; }
+        .glow-text span:nth-child(7) { animation-delay: 1.2s; }
+        .glow-text span:nth-child(8) { animation-delay: 1.4s; }
+        .glow-text span:nth-child(9) { animation-delay: 1.6s; }
+        .glow-text span:nth-child(10) { animation-delay: 1.8s; }
+        .glow-text span:nth-child(11) { animation-delay: 2s; }
+        .glow-text span:nth-child(12) { animation-delay: 2.2s; }
+        .glow-text span:nth-child(13) { animation-delay: 2.5s; }
+        .glow-text span:nth-child(14) { animation-delay: 2.8s; }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255,0,0,0.5), 0 0 20px rgba(255,0,0,0.5); }
+            to { text-shadow: 0 0 20px rgba(0,255,0,0.5), 0 0 30px rgba(0,255,0,0.5); }
+        }
+        #entry-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #entry-form h2 {
+            text-align: center;
+            color: green;
+        }
+        #entry-form p {
+            text-align: center;
+        }
+        #entry-form form {
+            text-align: center;
+        }
+        #entry-form label {
+            display: block;
+            margin: 10px 0;
+        }
+        #entry-form input[type="text"],
+        #entry-form input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor:pointer;
+        }
+        #entry-form button[type="submit"] {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        #entry-form button[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+        #admin-login {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function checkFormAndNavigate(event) {
+            var name = document.getElementById('name').value;
+            var admissionNumber = document.getElementById('admission_number').value;
+            
+            if (name === "" || admissionNumber === "") {
+                event.preventDefault(); // Prevent default form submission
+                alert("Please enter your name and admission number.");
+            } else {
+                sessionStorage.setItem('studentPortalLoggedIn', 'true'); // Store login status in sessionStorage
+            }
+        }
+
+        function adminLogin() {
+            var password = prompt("Enter admin password:");
+            if (password === "123") {
+                window.location.href = "Admin.html";
+            } else {
+                alert("Incorrect password");
+            }
+        }
+
+        // Check if the user has logged in before navigating
+        document.addEventListener('DOMContentLoaded', function() {
+            var loggedIn = sessionStorage.getItem('studentPortalLoggedIn');
+            if (!loggedIn) {
+                // Redirect to index.html or another appropriate page
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="glow-text">
+        <span style="color: #000000 ;">E</span>
+        <span style="color: #000000 ;">z</span>
+        <span style="color: #000000;">r</span>
+        <span style="color: #000000 ;">a</span>
+        <span style="color: #000000 ;"> </span>
+        <span style="color: #000000;">M</span>
+        <span style="color: #000000;">a</span>
+        <span style="color: #000000;">s</span>
+        <span style="color: #000000;">t</span>
+        <span style="color: #000000;">e</span>
+        <span style="color: #000000;">r</span>
+        <span style="color: #000000;">p</span>
+        <span style="color: #000000;">i</span>
+        <span style="color: #000000;">e</span>
+        <span style="color: black;">c</span>
+        <span style="color: black;">e</span>
+    </div>
+
+    <div id="entry-form">
+        <h2>Welcome to the Student Portal</h2>
+        <p>Please enter your details to proceed:</p>
+        <form action="process.php" onsubmit="checkFormAndNavigate(event)" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="admission_number">Admission Number:</label><br>
+            <input type="text" id="admission_number" name="admission_number" required><br><br>
+            
+            <button type="submit">Proceed to Student Portal</button>
+        </form>
+    </div>
+
+    <div id="admin-login">
+        <button onclick="adminLogin()">Admin Login</button>
+    </div>
+</body>
+</html>
