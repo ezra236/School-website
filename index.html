@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="320">
+    <link rel="icon" href="weather.png" type="image/png">
+    <title>Student Portal</title>
+    <style>
+        body {
+            background-color: #153141;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #header {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #header h1 {
+            font-size: 36px;
+            color: #B2D3C2;
+            margin: 0;
+        }
+        #header p {
+            font-size: 25px;
+            color: #FFFFFF;
+            margin: 10px 0 0;
+        }
+        nav {
+            background-color: green;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            top: 20px; /* Position the nav below the header */
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin: 0 15px; /* Adjusted spacing */
+        }
+        nav a:hover {
+            background-color: blue;
+        }
+        /* Style for 'Feedback' link in navigation */
+        nav a[href="feedback.html"] {
+            color: black;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        #content {
+            text-align: center;
+            margin-top: 20px; /* Ensure content is below the nav */
+        }
+        #content img, #content video {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>EZRA SCHOOL OF CREATIVITY</h1>
+        <hr width=10000>
+        <p>Welcome to Ezra School of Creativity. Explore our offerings and join us to unlock your creative potential.</p>
+    </div>
+
+    <nav>
+        <a href="signup.html">Sign Up</a>
+        <a href="main.html">Login</a>
+        <a href="pas.html">Admin</a>
+    </nav>
+
+    <div id="content">
+        
+    </div>
+</body>
+</html>

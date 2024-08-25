@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="320">
+    <link rel="icon" href="weather.png" type="image/png">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            background-color: #153141;
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background-color: green;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 20px;
+        }
+        nav a:hover {
+            background-color: blue;
+        }
+        .form-container {
+            background-color: black;
+            padding: 150px;
+            margin: 20px auto;
+            color: white;
+            width: 50%;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 700px; /* Set a maximum width for content clarity */
+            min-height: 40vh; /* Minimum full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+         .form-container h2 {
+            text-align:left;
+            color: green;
+        }
+          .form-container form {
+            text-align:left;
+        } 
+         .form-container input[type="password"] {
+            width: 100px;
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor:pointer;
+        }
+        .form-container textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor:pointer;
+        }
+        .form-container button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .form-container button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+    <div class="form-container">
+        <h2>Admin Panel</h2>
+        <form action="submit_news.php" method="POST">
+            <label for="news">Enter News:</label><br>
+            <textarea id="news" name="news" rows="4" cols="50" required></textarea><br><br>
+            <br>
+            <br>
+            <button type="submit">Submit News</button>
+        </form>
+        <br>
+        <button onclick="window.location.href='cha.php';">Change Password</button>
+    </div>
+</body>
+</html>
